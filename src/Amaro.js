@@ -9,7 +9,7 @@ const shaders = GL.Shaders.create({
   Amaro: {
     frag: `
       precision highp float;
-      varying vec2 uv;
+      varying highp vec2 uv;
 
       uniform sampler2D inputImageTexture;
       uniform sampler2D inputImageTexture2; //blowout;
@@ -18,8 +18,8 @@ const shaders = GL.Shaders.create({
 
       void main () {
      
-        vec4 texel = texture2D(inputImageTexture, textureCoordinate);
-        vec3 bbTexel = texture2D(inputImageTexture2, textureCoordinate).rgb;
+        vec4 texel = texture2D(inputImageTexture, uv);
+        vec3 bbTexel = texture2D(inputImageTexture2, uv).rgb;
 
         texel.r = texture2D(inputImageTexture3, vec2(bbTexel.r, texel.r)).r;
         texel.g = texture2D(inputImageTexture3, vec2(bbTexel.g, texel.g)).g;
@@ -43,7 +43,7 @@ module.exports = GL.createComponent(
       shader={shaders.Amaro}
       uniforms={{ 
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/amaroMap.png',
+        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/blackboard1024.png',
         inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/overlayMap.png',
         inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/amaroMap.png',
       }}
