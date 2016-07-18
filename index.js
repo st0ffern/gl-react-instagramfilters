@@ -1,7 +1,7 @@
 export {default as F1977} from './src/F1977'
 export {default as Amaro} from './src/Amaro'
 export {default as Brannan} from './src/Brannan'
-// export {default as Earlybird} from './src/Earlybird'
+export {default as Earlybird} from './src/Earlybird'
 // export {default as Hefe} from './src/Hefe'
 // export {default as Hudson} from './src/Hudson'
 // export {default as Inkwell} from './src/Inkwell'
