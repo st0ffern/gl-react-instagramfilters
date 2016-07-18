@@ -13,13 +13,13 @@ none! :) only add the filter
 ## Installation
 
 ```js
-npm i -S react-native-gl-react-instagramfilters
+npm i -S gl-react-instagramfilters
 ```
 
 ## Usage Examples
 
 ```js
-import {Hudson} from "react-native-instagramfilters"
+import {Hudson} from "gl-react-instagramfilters"
 ```
 
 
