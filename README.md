@@ -35,3 +35,26 @@ import {Hudson} from "gl-react-instagramfilters"
   </Hudson>
 </Surface>
 ```
+
+## Available filters
+```
+F1977
+Amaro
+Brannan
+Earlybird
+Hefe
+Hudson
+Inkwell
+Lokofi
+LordKelvin
+Nashville
+Normal
+Rise
+Sierra
+Sutro
+Toaster
+Valencia
+Walden
+XproII
+
+```
