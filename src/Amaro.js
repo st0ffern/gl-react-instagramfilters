@@ -12,9 +12,9 @@ const shaders = GL.Shaders.create({
       varying highp vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2; //blowout;
-      uniform sampler2D inputImageTexture3; //overlay;
-      uniform sampler2D inputImageTexture4; //map
+      uniform sampler2D inputImageTexture2;
+      uniform sampler2D inputImageTexture3;
+      uniform sampler2D inputImageTexture4;
 
       void main () {
      

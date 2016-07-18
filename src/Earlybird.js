@@ -2,17 +2,17 @@ import GL from 'gl-react'
 import React,{PropTypes} from 'react'
 
 const shaders = GL.Shaders.create({
-  Brannan: {
+  Earlybird: {
     frag: `
       precision highp float;
       varying vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2; //earlyBirdCurves
-      uniform sampler2D inputImageTexture3; //earlyBirdOverlay
-      uniform sampler2D inputImageTexture4; //vig
-      uniform sampler2D inputImageTexture5; //earlyBirdBlowout
-      uniform sampler2D inputImageTexture6; //earlyBirdMap
+      uniform sampler2D inputImageTexture2;
+      uniform sampler2D inputImageTexture3;
+      uniform sampler2D inputImageTexture4;
+      uniform sampler2D inputImageTexture5;
+      uniform sampler2D inputImageTexture6; 
 
       const mat3 saturate = mat3(
                                 1.210300,
@@ -112,7 +112,7 @@ const shaders = GL.Shaders.create({
 module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
-      shader={shaders.Brannan}
+      shader={shaders.Earlybird}
       uniforms={{ 
         inputImageTexture,
         inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlyBirdCurves.png',
@@ -124,7 +124,7 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "Brannan",
+    displayName: "Earlybird",
     propTypes: {
       children: PropTypes.any.isRequired,
     }

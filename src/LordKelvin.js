@@ -8,13 +8,25 @@ const shaders = GL.Shaders.create({
       varying vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2;  //edgeBurn
-      uniform sampler2D inputImageTexture3;  //hefeMap
-      uniform sampler2D inputImageTexture4;  //hefeGradientMap
-      uniform sampler2D inputImageTexture5;  //hefeSoftLight
-      uniform sampler2D inputImageTexture6;  //hefeMetal
+      uniform sampler2D inputImageTexture2;
 
       void main () {
+
+        vec3 texel = texture2D(inputImageTexture, uv).rgb;
+
+        vec2 lookup;
+        lookup.y = .5;
+
+        lookup.x = texel.r;
+        texel.r = texture2D(inputImageTexture2, lookup).r;
+
+        lookup.x = texel.g;
+        texel.g = texture2D(inputImageTexture2, lookup).g;
+
+        lookup.x = texel.b;
+        texel.b = texture2D(inputImageTexture2, lookup).b;
+
+        gl_FragColor = vec4(texel, 1.0);
 
       }`
   }
@@ -26,11 +38,7 @@ module.exports = GL.createComponent(
       shader={shaders.LordKelvin}
       uniforms={{ 
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlyBirdCurves.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdOverlayMap.png',
-        inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/vignetteMap.png',
-        inputImageTexture5: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdBlowout.png',
-        inputImageTexture6: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdMap.png'
+        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/kelvinMap.png',
       }}
     />
   },

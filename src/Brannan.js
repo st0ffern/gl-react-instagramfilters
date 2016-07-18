@@ -8,11 +8,11 @@ const shaders = GL.Shaders.create({
       varying vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2;  //process
-      uniform sampler2D inputImageTexture3;  //blowout
-      uniform sampler2D inputImageTexture4;  //contrast
-      uniform sampler2D inputImageTexture5;  //luma
-      uniform sampler2D inputImageTexture6;  //screen
+      uniform sampler2D inputImageTexture2;
+      uniform sampler2D inputImageTexture3;
+      uniform sampler2D inputImageTexture4;
+      uniform sampler2D inputImageTexture5;
+      uniform sampler2D inputImageTexture6;
 
       mat3 saturateMatrix = mat3(
                                 1.105150,
