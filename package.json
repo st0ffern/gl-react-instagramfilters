@@ -1,0 +1,29 @@
+{
+  "name": "gl-react-instagramfilters",
+  "version": "0.1.0",
+  "description": "Instagram filters for gl-react and gl-react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoffern/gl-react-instagramfilters.git"
+  },
+  "keywords": [
+    "gl-react",
+    "react",
+    "react-native",
+    "gl-react-native",
+    "instagram",
+    "filters",
+    "image",
+    "filters"
+  ],
+  "author": "stoffern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoffern/gl-react-instagramfilters/issues"
+  },
+  "homepage": "https://github.com/stoffern/gl-react-instagramfilters#readme"
+}
