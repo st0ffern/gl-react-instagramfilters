@@ -4,6 +4,7 @@
   "description": "Instagram filters for gl-react and gl-react-native",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +22,17 @@
     "filters"
   ],
   "author": "stoffern",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/stoffern/gl-react-instagramfilters/issues"
   },
-  "homepage": "https://github.com/stoffern/gl-react-instagramfilters#readme"
+  "homepage": "https://github.com/stoffern/gl-react-instagramfilters#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
