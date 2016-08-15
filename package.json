@@ -1,15 +1,16 @@
 {
   "name": "gl-react-instagramfilters",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-release",
   "description": "Instagram filters for gl-react and gl-react-native",
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stoffern/gl-react-instagramfilters.git"
+    "url": "https://github.com/stoffern/gl-react-instagramfilters.git"
   },
   "keywords": [
     "gl-react",
@@ -28,7 +29,8 @@
   },
   "homepage": "https://github.com/stoffern/gl-react-instagramfilters#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.6"
+    "cz-conventional-changelog": "^1.2.0",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "commitizen": {
