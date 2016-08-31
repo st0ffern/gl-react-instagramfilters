@@ -78,12 +78,9 @@ const shaders = GL.Shaders.create({
 
         //---
 
-        lookup = vec2(d, texel.r);
-        texel.r = texture2D(inputImageTexture4, lookup).r;
-        lookup.y = texel.g;
-        texel.g = texture2D(inputImageTexture4, lookup).g;
-        lookup.y = texel.b;
-        texel.b  = texture2D(inputImageTexture4, lookup).b;
+        texel.r = texture2D(inputImageTexture4, vec2(d, (1.0-texel.r))).r;
+        texel.g = texture2D(inputImageTexture4, vec2(d, (1.0-texel.g))).g;
+        texel.b  = texture2D(inputImageTexture4, vec2(d, (1.0-texel.b))).b;
         float value = smoothstep(0.0, 1.25, pow(d, 1.35)/1.65);
 
         //---

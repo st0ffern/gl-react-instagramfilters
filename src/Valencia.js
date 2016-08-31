@@ -30,17 +30,17 @@ const shaders = GL.Shaders.create({
         vec3 texel = texture2D(inputImageTexture, uv).rgb;
 
         texel = vec3(
-                    texture2D(inputImageTexture2, vec2(texel.r, .1666666)).r,
+                    texture2D(inputImageTexture2, vec2(texel.r, .8333333)).r,
                     texture2D(inputImageTexture2, vec2(texel.g, .5)).g,
-                    texture2D(inputImageTexture2, vec2(texel.b, .8333333)).b
+                    texture2D(inputImageTexture2, vec2(texel.b, .1666666)).b
                     );
 
         texel = saturateMatrix * texel;
         float luma = dot(lumaCoeffs, texel);
         texel = vec3(
-                    texture2D(inputImageTexture3, vec2(luma, texel.r)).r,
-                    texture2D(inputImageTexture3, vec2(luma, texel.g)).g,
-                    texture2D(inputImageTexture3, vec2(luma, texel.b)).b);
+                    texture2D(inputImageTexture3, vec2(luma, (1.0-texel.r))).r,
+                    texture2D(inputImageTexture3, vec2(luma, (1.0-texel.g))).g,
+                    texture2D(inputImageTexture3, vec2(luma, (1.0-texel.b))).b);
 
         gl_FragColor = vec4(texel, 1.0);
       }`
