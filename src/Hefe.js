@@ -21,23 +21,23 @@ const shaders = GL.Shaders.create({
         texel = texel * edge;
         
         texel = vec3(
-                       texture2D(inputImageTexture3, vec2(texel.r, .16666)).r,
+                       texture2D(inputImageTexture3, vec2(texel.r, .83333)).r,
                        texture2D(inputImageTexture3, vec2(texel.g, .5)).g,
-                       texture2D(inputImageTexture3, vec2(texel.b, .83333)).b);
+                       texture2D(inputImageTexture3, vec2(texel.b, .16666)).b);
         
         vec3 luma = vec3(.30, .59, .11);
         vec3 gradSample = texture2D(inputImageTexture4, vec2(dot(luma, texel), .5)).rgb;
         vec3 final = vec3(
-                            texture2D(inputImageTexture5, vec2(gradSample.r, texel.r)).r,
-                            texture2D(inputImageTexture5, vec2(gradSample.g, texel.g)).g,
-                            texture2D(inputImageTexture5, vec2(gradSample.b, texel.b)).b
+                            texture2D(inputImageTexture5, vec2(gradSample.r, (1.0-texel.r))).r,
+                            texture2D(inputImageTexture5, vec2(gradSample.g, (1.0-texel.g))).g,
+                            texture2D(inputImageTexture5, vec2(gradSample.b, (1.0-texel.b))).b
                             );
           
           vec3 metal = texture2D(inputImageTexture6, uv).rgb;
           vec3 metaled = vec3(
-                              texture2D(inputImageTexture5, vec2(metal.r, texel.r)).r,
-                              texture2D(inputImageTexture5, vec2(metal.g, texel.g)).g,
-                              texture2D(inputImageTexture5, vec2(metal.b, texel.b)).b
+                              texture2D(inputImageTexture5, vec2(metal.r, (1.0-texel.r))).r,
+                              texture2D(inputImageTexture5, vec2(metal.g, (1.0-texel.g))).g,
+                              texture2D(inputImageTexture5, vec2(metal.b, (1.0-texel.b))).b
                               );
         
         gl_FragColor = vec4(metaled, 1.0);
