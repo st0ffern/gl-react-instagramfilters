@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Earlybird: {
@@ -12,7 +13,7 @@ const shaders = GL.Shaders.create({
       uniform sampler2D inputImageTexture3;
       uniform sampler2D inputImageTexture4;
       uniform sampler2D inputImageTexture5;
-      uniform sampler2D inputImageTexture6; 
+      uniform sampler2D inputImageTexture6;
 
       const mat3 saturate = mat3(
                                 1.210300,
@@ -24,13 +25,13 @@ const shaders = GL.Shaders.create({
                                 -0.034200,
                                 -0.034200,
                                 1.265800);
-      const vec3 rgbPrime = vec3(0.25098, 0.14640522, 0.0); 
+      const vec3 rgbPrime = vec3(0.25098, 0.14640522, 0.0);
       const vec3 desaturate = vec3(.3, .59, .11);
       void main () {
 
         vec3 texel = texture2D(inputImageTexture, uv).rgb;
 
-        vec2 lookup;    
+        vec2 lookup;
         lookup.y = 0.5;
 
         lookup.x = texel.r;
@@ -110,13 +111,13 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Earlybird}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlyBirdCurves.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdOverlayMap.png',
-        inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/vignetteMap.png',
-        inputImageTexture5: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdBlowout.png',
-        inputImageTexture6: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/earlybirdMap.png'
+        inputImageTexture2: resolveAssetSource(require('../resources/earlyBirdCurves.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/earlybirdOverlayMap.png')),
+        inputImageTexture4: resolveAssetSource(require('../resources/vignetteMap.png')),
+        inputImageTexture5: resolveAssetSource(require('../resources/earlybirdBlowout.png')),
+        inputImageTexture6: resolveAssetSource(require('../resources/earlybirdMap.png'))
       }}
     />
   },

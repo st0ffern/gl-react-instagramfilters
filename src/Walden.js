@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Walden: {
@@ -9,7 +10,7 @@ const shaders = GL.Shaders.create({
 
       uniform sampler2D inputImageTexture;
       uniform sampler2D inputImageTexture2;
-      uniform sampler2D inputImageTexture3; 
+      uniform sampler2D inputImageTexture3;
 
       void main () {
 
@@ -35,10 +36,10 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Walden}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/waldenMap.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/vignetteMap.png',
+        inputImageTexture2: resolveAssetSource(require('../resources/waldenMap.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/vignetteMap.png')),
       }}
     />
   },

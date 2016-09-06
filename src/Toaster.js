@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Toaster: {
@@ -8,10 +9,10 @@ const shaders = GL.Shaders.create({
       varying vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2;  
-      uniform sampler2D inputImageTexture3; 
-      uniform sampler2D inputImageTexture4; 
-      uniform sampler2D inputImageTexture5; 
+      uniform sampler2D inputImageTexture2;
+      uniform sampler2D inputImageTexture3;
+      uniform sampler2D inputImageTexture4;
+      uniform sampler2D inputImageTexture5;
       uniform sampler2D inputImageTexture6;
 
       void main () {
@@ -76,13 +77,13 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Toaster}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/toasterMetal.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/toasterSoftLight.png',
-        inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/toasterCurves.png',
-        inputImageTexture5: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/toasterOverlayMapWarm.png',
-        inputImageTexture6: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/toasterColorShift.png'
+        inputImageTexture2: resolveAssetSource(require('../resources/toasterMetal.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/toasterSoftLight.png')),
+        inputImageTexture4: resolveAssetSource(require('../resources/toasterCurves.png')),
+        inputImageTexture5: resolveAssetSource(require('../resources/toasterOverlayMapWarm.png')),
+        inputImageTexture6: resolveAssetSource(require('../resources/toasterColorShift.png'))
       }}
     />
   },
