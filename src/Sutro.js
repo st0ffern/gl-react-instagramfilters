@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Sutro: {
@@ -10,9 +11,9 @@ const shaders = GL.Shaders.create({
       uniform sampler2D inputImageTexture;
       uniform sampler2D inputImageTexture2;
       uniform sampler2D inputImageTexture3;
-      uniform sampler2D inputImageTexture4; 
+      uniform sampler2D inputImageTexture4;
       uniform sampler2D inputImageTexture5;
-      uniform sampler2D inputImageTexture6;  
+      uniform sampler2D inputImageTexture6;
 
       void main () {
 
@@ -24,7 +25,7 @@ const shaders = GL.Shaders.create({
         texel.g = texture2D(inputImageTexture2, vec2(d, (1.0-texel.g))).g;
         texel.b  = texture2D(inputImageTexture2, vec2(d, (1.0-texel.b))).b;
 
-        vec3 rgbPrime = vec3(0.1019, 0.0, 0.0); 
+        vec3 rgbPrime = vec3(0.1019, 0.0, 0.0);
         float m = dot(vec3(.3, .59, .11), texel.rgb) - 0.03058;
         texel = mix(texel, rgbPrime + m, 0.32);
 
@@ -49,13 +50,13 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Sutro}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/vignetteMap.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/sutroMetal.png',
-        inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/softLight.png',
-        inputImageTexture5: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/sutroEdgeBurn.png',
-        inputImageTexture6: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/sutroCurves.png'
+        inputImageTexture2: resolveAssetSource(require('../resources/vignetteMap.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/sutroMetal.png')),
+        inputImageTexture4: resolveAssetSource(require('../resources/softLight.png')),
+        inputImageTexture5: resolveAssetSource(require('../resources/sutroEdgeBurn.png')),
+        inputImageTexture6: resolveAssetSource(require('../resources/sutroCurves.png'))
       }}
     />
   },

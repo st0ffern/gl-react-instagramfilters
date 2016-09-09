@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Valencia: {
@@ -8,7 +9,7 @@ const shaders = GL.Shaders.create({
       varying vec2 uv;
 
       uniform sampler2D inputImageTexture;
-      uniform sampler2D inputImageTexture2; 
+      uniform sampler2D inputImageTexture2;
       uniform sampler2D inputImageTexture3;
 
 
@@ -51,10 +52,10 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Valencia}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/valenciaMap.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/valenciaGradientMap.png',
+        inputImageTexture2: resolveAssetSource(require('../resources/valenciaMap.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/valenciaGradientMap.png')),
       }}
     />
   },

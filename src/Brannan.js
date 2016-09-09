@@ -1,5 +1,6 @@
 import GL from 'gl-react'
 import React,{PropTypes} from 'react'
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
   Brannan: {
@@ -28,7 +29,7 @@ const shaders = GL.Shaders.create({
       vec3 luma = vec3(.3, .59, .11);
 
       void main () {
-     
+
         vec3 texel = texture2D(inputImageTexture, uv).rgb;
 
         vec2 lookup;
@@ -84,13 +85,13 @@ module.exports = GL.createComponent(
   ({ children: inputImageTexture }) => {
     return <GL.Node
       shader={shaders.Brannan}
-      uniforms={{ 
+      uniforms={{
         inputImageTexture,
-        inputImageTexture2: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/brannanProcess.png',
-        inputImageTexture3: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/brannanBlowout.png',
-        inputImageTexture4: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/brannanContrast.png',
-        inputImageTexture5: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/brannanLuma.png',
-        inputImageTexture6: 'https://raw.githubusercontent.com/stoffern/gl-react-instagramfilters/master/resources/brannanScreen.png'
+        inputImageTexture2: resolveAssetSource(require('../resources/brannanProcess.png')),
+        inputImageTexture3: resolveAssetSource(require('../resources/brannanBlowout.png')),
+        inputImageTexture4: resolveAssetSource(require('../resources/brannanContrast.png')),
+        inputImageTexture5: resolveAssetSource(require('../resources/brannanLuma.png')),
+        inputImageTexture6: resolveAssetSource(require('../resources/brannanScreen.png'))
       }}
     />
   },
