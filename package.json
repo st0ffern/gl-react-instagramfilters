@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/stoffern/gl-react-instagramfilters#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^1.2.0",
-    "semantic-release": "^4.3.5"
+    "cz-conventional-changelog": "^2.0.0",
+    "semantic-release": "^8.0.3"
   },
   "config": {
     "commitizen": {
