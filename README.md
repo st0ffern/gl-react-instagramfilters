@@ -1,5 +1,7 @@
 # gl-react-instagramfilters [![](https://img.shields.io/npm/v/gl-react-instagramfilters.svg)](https://www.npmjs.com/package/gl-react-instagramfilters) [![npm](https://img.shields.io/npm/dt/gl-react-instagramfilters.svg)](https://www.npmjs.com/package/gl-react-instagramfilters) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/stoffern/gl-react-instagramfilters.svg)](https://greenkeeper.io/)
+
 
 Instagram filters for gl-react and gl-react-native
 
