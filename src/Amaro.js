@@ -47,9 +47,6 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "Amaro",
-    propTypes: {
-      children: PropTypes.any.isRequired,
-    }
+    displayName: "Amaro"
   }
 );
