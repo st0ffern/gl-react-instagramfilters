@@ -1,5 +1,4 @@
 import GL from 'gl-react'
-import React,{PropTypes} from 'react'
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
@@ -122,9 +121,6 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "Earlybird",
-    propTypes: {
-      children: PropTypes.any.isRequired,
-    }
+    displayName: "Earlybird"
   }
 );
