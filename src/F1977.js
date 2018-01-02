@@ -2,10 +2,6 @@ import GL from 'gl-react'
 import React from 'react'
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
-const {
-  PropTypes
-} = React;
-
 const shaders = GL.Shaders.create({
   F1977: {
     frag: `
@@ -41,9 +37,6 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "F1977",
-    propTypes: {
-      children: PropTypes.any.isRequired,
-    }
+    displayName: "F1977"
   }
 );

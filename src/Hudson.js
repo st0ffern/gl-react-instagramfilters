@@ -1,5 +1,6 @@
 import GL from 'gl-react'
-import React,{PropTypes} from 'react'
+import React from 'react'
+
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
 const shaders = GL.Shaders.create({
@@ -46,9 +47,6 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "Hudson",
-    propTypes: {
-      children: PropTypes.any.isRequired,
-    }
+    displayName: "Hudson"
   }
 );

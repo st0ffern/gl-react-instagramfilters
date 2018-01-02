@@ -2,10 +2,6 @@ const GL = require("gl-react");
 const React = require("react");
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
-const {
-  PropTypes
-} = React;
-
 const shaders = GL.Shaders.create({
   Amaro: {
     frag: `
@@ -51,9 +47,6 @@ module.exports = GL.createComponent(
     />
   },
   {
-    displayName: "Amaro",
-    propTypes: {
-      children: PropTypes.any.isRequired,
-    }
+    displayName: "Amaro"
   }
 );
